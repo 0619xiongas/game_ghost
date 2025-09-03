@@ -24,18 +24,40 @@ void Scene::OnEvent(void *event)
 void Scene::Update(float dt)
 {
     SDL_Object::Update(dt);
-    for(auto& child : m_worldObjects)
+    for(auto itr = m_worldObjects.begin(); itr != m_worldObjects.end();)
     {
-        if(child->IsActive())
+        auto child = *itr;
+        if(child->GetRemove())
         {
-            child->Update(dt);
+            itr = m_worldObjects.erase(itr);
+            child->Clean();
+            delete child;
+        }
+        else
+        {
+            if(child->IsActive())
+            {
+                child->Update(dt);
+            }
+            itr++;
         }
     }
-    for(auto& child : m_screenObjects)
+    for(auto itr = m_screenObjects.begin(); itr != m_screenObjects.end();)
     {
-        if(child->IsActive())
+        auto child = *itr;
+        if(child->GetRemove())
         {
-            child->Update(dt);
+            itr = m_screenObjects.erase(itr);
+            child->Clean();
+            delete child;
+        }
+        else
+        {
+            if(child->IsActive())
+            {
+                child->Update(dt);
+            }
+            itr++;
         }
     }
 }

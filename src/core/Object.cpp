@@ -13,11 +13,22 @@ void SDL_Object::OnEvent(void *event)
 
 void SDL_Object::Update(float dt)
 {
-    for(auto& child : m_childrens)
+    for(auto itr = m_childrens.begin(); itr != m_childrens.end();)
     {
-        if(child->IsActive())
+        auto child = *itr;
+        if(child->GetRemove())
         {
-            child->Update(dt);
+            itr = m_childrens.erase(itr);
+            child->Clean();
+            delete child;
+        }
+        else
+        {
+            if(child->IsActive())
+            {
+                child->Update(dt);
+            }
+            itr++;
         }
     }
 }
@@ -80,4 +91,12 @@ bool SDL_Object::IsActive() const
 void SDL_Object::SetActive(bool active)
 {
     m_isActive = active;
+}
+bool SDL_Object::GetRemove() const
+{
+    return m_remove;
+}
+void SDL_Object::SetRemove(bool remove)
+{
+    m_remove = remove;
 }

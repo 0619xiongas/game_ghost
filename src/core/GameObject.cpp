@@ -26,4 +26,15 @@ void GameObject::Move(float dt)
     SetWorldPos(m_worldPos + m_velocity * dt);
     m_worldPos = glm::clamp(m_worldPos, glm::vec2(-10.0f), g_GameEngine->GetCurScene()->GetWorldSize());
 }
-
+bool GameObject::IsAlive() const
+{
+    if(!m_attribute) return false;
+    return m_attribute->IsAlive();
+}
+void GameObject::TakeDamage(float dmg)
+{
+    if(m_attribute)
+    {
+        m_attribute->TakeDamage(dmg);
+    }
+}

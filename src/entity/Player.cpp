@@ -2,6 +2,8 @@
 #include "core/GameEngine.h"
 #include "core/Scene.h"
 #include "GameMacro.h"
+#include "component/Collider.h"
+
 void Player::Init()
 {
     GameObject::Init();
@@ -9,6 +11,8 @@ void Player::Init()
     m_animIdle = SpriteAnimation::AddSpriteChild(this, "../assets/sprite/ghost-idle.png", 2.0f);
     m_animMove = SpriteAnimation::AddSpriteChild(this, "../assets/sprite/ghost-move.png", 2.0f);
     m_animMove->SetActive(false);
+    m_collider = Collider::AddColliderChild(this, m_animIdle->GetSize() / 2.0f, Collider::ColliderType::Circle);
+    m_attribute = Attribute::AddAttributeChild(this, 200.0f, 200.0f, 100.0f, 100.0f, 10.0f, 10.0f);
 }
 
 void Player::OnEvent(void *event)

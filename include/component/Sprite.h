@@ -16,9 +16,8 @@ struct Texture
 class Sprite : public ComponentObject
 {
 public:
-    static Sprite* AddSpriteChild(ScreenObject* parent, const std::string& path,float scale);
+    static Sprite* AddSpriteChild(ScreenObject* parent, const std::string& path,float scale,Anchor anchor = Anchor::Center);
     virtual void Render() override;
-    void SetScale(float scale);
 
     Texture GetTexture() const;
     virtual void SetTexture(const Texture& texture);
@@ -26,8 +25,11 @@ public:
     void SetAngle(float angle);
     bool GetFilp() const;
     float GetAngle() const;
+    bool GetFinished() const;
+    void SetFinished(bool finished);
 protected:
     Texture m_texture;
+    bool m_finished = false;
 };
 
 #endif

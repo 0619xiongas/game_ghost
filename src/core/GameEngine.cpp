@@ -80,9 +80,6 @@ void GameEngine::Run()
 		{
 			m_deltaTime = (float)duartion / G_GAME_SEC_NS;
 		}
-#ifdef GAME_DEBUG
-		SDL_Log("FPS is %f", 1.0f / m_deltaTime);
-#endif
 	}
 }
 
@@ -119,6 +116,19 @@ void GameEngine::RenderTexture(const Texture &texture, const glm::vec2 &pos, con
 		size.y
 	};
 	SDL_RenderTextureRotated(m_renderer, texture.texture, &texture.rect, &rect, texture.angle, nullptr, texture.isFlipped ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+}
+
+void GameEngine::RenderFillCircle(const glm::vec2 &pos, const glm::vec2 &size, float alpha)
+{
+	auto texture = m_assetManager->GetTexture("../assets/UI/circle.png");
+	SDL_FRect rect = {
+		pos.x,
+		pos.y,
+		size.x,
+		size.y
+	};
+	SDL_SetTextureAlphaModFloat(texture, alpha);
+    SDL_RenderTexture(m_renderer, texture, NULL, &rect);
 }
 
 void GameEngine::HandleEvent()

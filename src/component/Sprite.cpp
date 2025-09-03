@@ -12,13 +12,14 @@ Texture::Texture(const std::string& path)
     SDL_GetTextureSize(texture,&rect.w,&rect.h);
 }
 
-Sprite* Sprite::AddSpriteChild(ScreenObject* parent, const std::string& path,float scale)
+Sprite *Sprite::AddSpriteChild(ScreenObject *parent, const std::string &path, float scale, Anchor anchor)
 {
     Sprite* sprite = new Sprite();
     sprite->Init();
     sprite->SetParent(parent);
     sprite->SetTexture(Texture(path));
     sprite->SetScale(scale);
+    sprite->SetOffsetByAnchor(anchor);
     parent->AddChild(sprite);
     return sprite;
 }
@@ -27,14 +28,11 @@ void Sprite::Render()
 {
     if(!m_texture.texture) return;
     if(!m_parent) return;
+    if(m_finished) return;
     auto pos = m_parent->GetRenderPos() + m_offset;
     g_GameEngine->RenderTexture(m_texture,pos,m_size);
 }
 
-void Sprite::SetScale(float scale)
-{
-    m_size *= scale;
-}
 Texture Sprite::GetTexture() const
 {
     return m_texture;
@@ -62,4 +60,12 @@ bool Sprite::GetFilp() const
 float Sprite::GetAngle() const
 {
     return m_texture.angle;
+}
+bool Sprite::GetFinished() const
+{
+    return m_finished;
+}
+void Sprite::SetFinished(bool finished)
+{
+    m_finished = finished;
 }

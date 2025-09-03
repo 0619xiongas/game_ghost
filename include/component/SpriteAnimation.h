@@ -4,7 +4,7 @@
 class SpriteAnimation : public Sprite
 {
 public:
-    static SpriteAnimation* AddSpriteChild(ScreenObject* parent,const std::string& filePath,float scale);
+    static SpriteAnimation* AddSpriteChild(ScreenObject* parent,const std::string& filePath,float scale,Anchor anchor = Anchor::Center);
     virtual void Update(float dt) override;
     virtual void SetTexture(const Texture& texture) override;
 
@@ -16,10 +16,13 @@ public:
     void SetFps(int fps) { m_fps = fps; }
     float GetFrameTimer() const { return m_frameTimer; }
     void SetFrameTimer(float frameTimer) { m_frameTimer = frameTimer; }
+    bool GetLoop() const { return m_loop; }
+    void SetLoop(bool loop) { m_loop = loop; }
 private:
     int     m_currentFrame = 0;
     int     m_totalFrame = 0;
     int     m_fps = 10;
     float   m_frameTimer = 0.0f;
+    bool    m_loop = true; // 动画默认循环播放的
 };
 #endif

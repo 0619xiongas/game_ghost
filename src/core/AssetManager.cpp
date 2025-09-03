@@ -131,7 +131,7 @@ bool AssetManager::LoadSound(const std::string &path)
 
 bool AssetManager::LoadFont(const std::string &path, int size)
 {
-    TTF_Font* font = TTF_OpenFont(path.c_str(), size);
+    TTF_Font* font = TTF_OpenFont(path.c_str(), (float)size);
     if(font)
     {
         m_fonts[path + "--" + std::to_string(size)] = font;

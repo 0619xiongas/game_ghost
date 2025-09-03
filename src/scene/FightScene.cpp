@@ -2,6 +2,7 @@
 #include "core/GameEngine.h"
 #include "GameMacro.h"
 #include "entity/Player.h"
+#include "entity/Enemy.h"
 void FightScene::Init()
 {
 	m_worldSize = g_GameEngine->GetScreenSize() * 3.0f;
@@ -10,6 +11,12 @@ void FightScene::Init()
 	m_player->Init();
 	m_player->SetWorldPos(m_worldSize / 2.0f);
 	AddChild(m_player);
+
+	auto enemy = new Enemy();
+	enemy->Init();
+	enemy->SetWorldPos(m_worldSize / 2.0f + glm::vec2(100.0f));
+	enemy->SetTarget(m_player);
+	AddChild(enemy);
 }
 
 void FightScene::OnEvent(void* event)

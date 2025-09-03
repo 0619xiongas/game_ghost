@@ -32,10 +32,13 @@ public:
 	void SetType(ObjectType type);
 	bool IsActive() const;
 	void SetActive(bool active);
+	bool GetRemove() const;
+	void SetRemove(bool remove);
 protected:
 	std::vector<SDL_Object*> 		m_childrens;
 	ObjectType						m_type = ObjectType::OT_None;
 	bool							m_isActive = true;
+	bool							m_remove = false;
 };
 
 #endif

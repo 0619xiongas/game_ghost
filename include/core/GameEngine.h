@@ -28,6 +28,7 @@ public:
 
 	// func
 	void RenderTexture(const Texture& texture,const glm::vec2& pos,const glm::vec2& size);
+	void RenderFillCircle(const glm::vec2& pos,const glm::vec2& size, float alpha);
 private:
 	void HandleEvent();
 
