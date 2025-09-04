@@ -1,6 +1,6 @@
-﻿#include "core/GameObject.h"
-#include "core/GameEngine.h"
-#include "core/Scene.h"
+﻿#include "GameObject.h"
+#include "GameEngine.h"
+#include "Scene.h"
 glm::vec2 GameObject::GetVelocity() const
 {
     return m_velocity;

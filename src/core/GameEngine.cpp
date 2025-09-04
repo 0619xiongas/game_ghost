@@ -1,7 +1,7 @@
-﻿#include "core/GameEngine.h"
-#include "scene/FightScene.h"
-#include "GameMacro.h"
-#include "component/Sprite.h"
+﻿#include "GameEngine.h"
+#include "../scene/FightScene.h"
+#include "../GameMacro.h"
+#include "../component/Sprite.h"
 GameEngine::GameEngine()
 	:m_screenSize(0), m_isRunning(true), m_window(nullptr), m_renderer(nullptr)
 	,m_curScene(nullptr),m_frameDelay(0),m_deltaTime(0.0f),m_assetManager(nullptr)

@@ -1,7 +1,7 @@
-﻿#include "entity/Enemy.h"
-#include "entity/Player.h"
-#include "GameMacro.h"
-#include "component/Collider.h"
+﻿#include "Enemy.h"
+#include "Player.h"
+#include "../GameMacro.h"
+#include "../component/Collider.h"
 void Enemy::Init()
 {
     GameObject::Init();
@@ -79,7 +79,9 @@ void Enemy::Attack()
     if(!m_collider || !m_target->GetCollider()) return;
     if(m_collider->IsCollide(m_target->GetCollider()))
     {
-        // 打印日志信息 加上时间 秒
-        SDL_Log("Enemy Attack, %llu",SDL_GetTicks());
+        if(m_attribute && m_target->GetAttribute())
+        {
+            m_target->TakeDamage(m_attribute->GetDmg());
+        }
     }
 }

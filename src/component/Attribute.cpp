@@ -1,5 +1,7 @@
-﻿#include "component/Attribute.h"
-#include "core/GameObject.h"
+﻿#include "Attribute.h"
+#include "../core/GameObject.h"
+#include <iostream>
+
 Attribute *Attribute::AddAttributeChild(GameObject *parent, float hp, float mHp, float mp, float mMp, float dmg, float reMp)
 {
     Attribute* attribute = new Attribute();
@@ -35,6 +37,7 @@ void Attribute::TakeDamage(float dmg)
         m_hp = 0;
         m_isAlive = false;
     }
+    std::cout << "Take Damage, " << dmg << std::endl;
     m_isInvincible = true;
     m_invTimer = 0.0f; // 重置
 }

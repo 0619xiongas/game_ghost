@@ -1,7 +1,7 @@
 ﻿#ifndef G_AS_ENEMY_H
 #define G_AS_ENEMY_H
-#include "core/GameObject.h"
-#include "component/SpriteAnimation.h"
+#include "../core/GameObject.h"
+#include "../component/SpriteAnimation.h"
 class Player;
 class Enemy : public GameObject
 {

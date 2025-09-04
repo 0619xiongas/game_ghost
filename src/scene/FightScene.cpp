@@ -1,8 +1,8 @@
-﻿#include "scene/FightScene.h"
-#include "core/GameEngine.h"
-#include "GameMacro.h"
-#include "entity/Player.h"
-#include "entity/Enemy.h"
+﻿#include "FightScene.h"
+#include "../core/GameEngine.h"
+#include "../GameMacro.h"
+#include "../entity/Player.h"
+#include "../entity/Enemy.h"
 void FightScene::Init()
 {
 	m_worldSize = g_GameEngine->GetScreenSize() * 3.0f;

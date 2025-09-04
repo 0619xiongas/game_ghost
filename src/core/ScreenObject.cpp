@@ -1,4 +1,4 @@
-﻿#include "core/ScreenObject.h"
+﻿#include "ScreenObject.h"
 
 glm::vec2 ScreenObject::GetRenderPos() const
 {

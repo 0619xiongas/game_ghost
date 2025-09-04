@@ -30,7 +30,6 @@ include_directories(
     ${SDL3_INCLUDE}
     ${GLM_INCLUDE}
     ${VLD_INCLUDE}
-    ${CMAKE_SOURCE_DIR}/include
 )
 
 # 链接库目录
@@ -63,7 +62,7 @@ if(WIN32)
     file(COPY ${SDL3_LIB}/SDL3_ttf.dll DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG})
     # 隐藏控制台
     if(MSVC)
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+        #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
     else()
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     endif()

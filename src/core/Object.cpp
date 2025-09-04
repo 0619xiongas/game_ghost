@@ -1,4 +1,4 @@
-﻿#include "core/Object.h"
+﻿#include "Object.h"
 #include <algorithm>
 void SDL_Object::OnEvent(void *event)
 {
@@ -13,6 +13,14 @@ void SDL_Object::OnEvent(void *event)
 
 void SDL_Object::Update(float dt)
 {
+    if(!m_addList.empty())
+    {
+        for(auto& child : m_addList)
+        {
+            m_childrens.push_back(child);
+        }
+        m_addList.clear();
+    }
     for(auto itr = m_childrens.begin(); itr != m_childrens.end();)
     {
         auto child = *itr;
@@ -99,4 +107,12 @@ bool SDL_Object::GetRemove() const
 void SDL_Object::SetRemove(bool remove)
 {
     m_remove = remove;
+}
+
+void SDL_Object::SafeAddChild(SDL_Object *child)
+{
+    if(child)
+    {
+        m_addList.push_back(child);
+    }
 }

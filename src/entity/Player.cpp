@@ -1,8 +1,8 @@
-﻿#include "entity/Player.h"
-#include "core/GameEngine.h"
-#include "core/Scene.h"
-#include "GameMacro.h"
-#include "component/Collider.h"
+﻿#include "Player.h"
+#include "../core/GameEngine.h"
+#include "../core/Scene.h"
+#include "../GameMacro.h"
+#include "../component/Collider.h"
 
 void Player::Init()
 {

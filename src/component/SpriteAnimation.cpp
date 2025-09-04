@@ -1,4 +1,4 @@
-﻿#include "component/SpriteAnimation.h"
+﻿#include "SpriteAnimation.h"
 SpriteAnimation *SpriteAnimation::AddSpriteChild(ScreenObject *parent, const std::string &filePath, float scale, Anchor anchor)
 {
     auto ani = new SpriteAnimation();

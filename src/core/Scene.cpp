@@ -1,5 +1,5 @@
-﻿#include "core/Scene.h"
-#include "core/GameEngine.h"
+﻿#include "Scene.h"
+#include "GameEngine.h"
 #include <algorithm>
 
 void Scene::OnEvent(void *event)

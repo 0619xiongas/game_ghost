@@ -1,6 +1,6 @@
-﻿#include "component/Collider.h"
-#include "GameMacro.h"
-#include "core/GameEngine.h"
+﻿#include "Collider.h"
+#include "../GameMacro.h"
+#include "../core/GameEngine.h"
 void Collider::Render()
 {
 #ifdef GAME_DEBUG

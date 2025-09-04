@@ -34,8 +34,10 @@ public:
 	void SetActive(bool active);
 	bool GetRemove() const;
 	void SetRemove(bool remove);
+	void SafeAddChild(SDL_Object* child);
 protected:
 	std::vector<SDL_Object*> 		m_childrens;
+	std::vector<SDL_Object*> 		m_addList;
 	ObjectType						m_type = ObjectType::OT_None;
 	bool							m_isActive = true;
 	bool							m_remove = false;

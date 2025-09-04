@@ -1,6 +1,6 @@
-﻿#include "core/WorldObject.h"
-#include "core/Scene.h"
-#include "core/GameEngine.h"
+﻿#include "WorldObject.h"
+#include "Scene.h"
+#include "GameEngine.h"
 void WorldObject::Update(float dt)
 {
     ScreenObject::Update(dt);

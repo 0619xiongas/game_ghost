@@ -1,7 +1,7 @@
 ﻿#ifndef G_AS_PLAYER_H
 #define G_AS_PLAYER_H
-#include "core/GameObject.h"
-#include "component/SpriteAnimation.h"
+#include "../core/GameObject.h"
+#include "../component/SpriteAnimation.h"
 class Player : public GameObject
 {
 public:

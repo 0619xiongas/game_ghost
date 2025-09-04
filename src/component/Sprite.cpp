@@ -1,5 +1,5 @@
-﻿#include "component/Sprite.h"
-#include "core/GameEngine.h"
+﻿#include "Sprite.h"
+#include "../core/GameEngine.h"
 
 Texture::Texture(const std::string& path)
 {

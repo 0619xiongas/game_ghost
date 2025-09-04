@@ -1,4 +1,4 @@
-﻿#include "core/ComponentObject.h"
+﻿#include "ComponentObject.h"
 void ComponentObject::SetSize(const glm::vec2 &size)
 {
     m_size = size;
